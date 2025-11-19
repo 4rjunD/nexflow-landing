@@ -10,7 +10,6 @@ export default function Home() {
       <NexFlowHeader />
       
       <AnimatedHero
-        title="Artificial Intelligence Layer for Preventive Healthcare"
         subtitle="Detect chronic disease risk before symptoms appear. Continuous health monitoring powered by predictive AI models."
         primaryCta={{
           text: "Download App",
