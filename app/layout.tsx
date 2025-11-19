@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
-import { PreloadImages } from "@/components/ui/preload-images";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -16,8 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link rel="preload" href="/ClinicDashFinal.png" as="image" fetchPriority="high" />
+        <link rel="preload" href="/FinalSS1.png" as="image" fetchPriority="high" />
+        <link rel="preload" href="/FinalSS2.png" as="image" fetchPriority="high" />
+        <link rel="preload" href="/AllPatients.png" as="image" fetchPriority="high" />
+      </head>
       <body className="relative bg-black">
-        <PreloadImages />
         <AnimatedGridPattern
           numSquares={50}
           maxOpacity={0.1}
