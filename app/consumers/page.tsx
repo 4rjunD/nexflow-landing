@@ -8,6 +8,7 @@ import DisplayCards from "@/components/ui/display-cards";
 import { NexFlowHeader } from "@/components/blocks/nexflow-header";
 import { NexFlowFooter } from "@/components/blocks/nexflow-footer";
 import FeatureSection from "@/components/ui/feature-section";
+import { ImagePreloader } from "@/components/ui/image-preloader";
 import Image from "next/image";
 
 function ConsumerHero() {
@@ -111,13 +112,20 @@ function ConsumerFeatures() {
 }
 
 export default function ConsumersPage() {
+  const criticalImages = [
+    "/FinalSS1.png",
+    "/FinalSS2.png",
+  ];
+
   return (
-    <div className="min-h-screen">
-      <NexFlowHeader showPageLinks={false} showBookDemo={false} showFeatureLinks={false} />
-      <ConsumerHero />
-      <ConsumerFeatures />
-      <FeatureSection />
-      <NexFlowFooter hidePricing={true} />
-    </div>
+    <ImagePreloader images={criticalImages}>
+      <div className="min-h-screen">
+        <NexFlowHeader showPageLinks={false} showBookDemo={false} showFeatureLinks={false} />
+        <ConsumerHero />
+        <ConsumerFeatures />
+        <FeatureSection />
+        <NexFlowFooter hidePricing={true} />
+      </div>
+    </ImagePreloader>
   );
 }

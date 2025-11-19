@@ -6,6 +6,7 @@ import { NexFlowHeader } from "@/components/blocks/nexflow-header";
 import { NexFlowFooter } from "@/components/blocks/nexflow-footer";
 import { FeatureSection } from "@/components/ui/feature-section-1";
 import { Features } from "@/components/blocks/features-5";
+import { ImagePreloader } from "@/components/ui/image-preloader";
 import Image from "next/image";
 
 function ClinicHero() {
@@ -116,14 +117,21 @@ function ClinicFeatures() {
 }
 
 export default function ClinicsPage() {
+  const criticalImages = [
+    "/ClinicDashFinal.png",
+    "/AllPatients.png",
+  ];
+
   return (
-    <div className="min-h-screen">
-      <NexFlowHeader showPageLinks={false} showBookDemo={true} showFeatureLinks={true} showDownloadApp={false} excludeLinks={['Pricing']} />
-      <ClinicHero />
-      <ClinicFeatures />
-      <Features />
-      <NexFlowFooter hidePricing={true} />
-    </div>
+    <ImagePreloader images={criticalImages}>
+      <div className="min-h-screen">
+        <NexFlowHeader showPageLinks={false} showBookDemo={true} showFeatureLinks={true} showDownloadApp={false} excludeLinks={['Pricing']} />
+        <ClinicHero />
+        <ClinicFeatures />
+        <Features />
+        <NexFlowFooter hidePricing={true} />
+      </div>
+    </ImagePreloader>
   );
 }
 
