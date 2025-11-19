@@ -37,6 +37,7 @@ export function Features() {
                                 className="object-contain rounded-2xl" 
                                 alt="NexFlow Patient Management" 
                                 fill
+                                priority
                                 style={{ borderRadius: '1rem' }}
                             />
                         </div>
